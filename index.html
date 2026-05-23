@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Ahmed Hani — AI Workflow & Vibe Coding Engineer</title>
+  <meta name="description" content="Senior AI Systems Engineer specialising in multi-agent pipelines, LLM-powered workflow automation, real-time analytics, and enterprise AI. Available for senior/principal engineering roles." />
+  <meta property="og:title" content="Ahmed Hani — AI Workflow Engineer" />
+  <meta property="og:description" content="Production-grade AI systems: multi-agent orchestration, RAG pipelines, workflow automation, HIPAA-compliant healthcare AI." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:         #080b12;
+      --bg-2:       #0d1117;
+      --bg-3:       #131920;
+      --bg-card:    #111827;
+      --border:     rgba(255,255,255,0.07);
+      --border-md:  rgba(255,255,255,0.12);
+      --text:       #e8eaf0;
+      --text-2:     #9aa0b0;
+      --text-3:     #5a6272;
+      --accent:     #6366f1;
+      --accent-2:   #818cf8;
+      --accent-glow:rgba(99,102,241,0.25);
+      --green:      #10b981;
+      --green-dim:  rgba(16,185,129,0.15);
+      --amber:      #f59e0b;
+      --red:        #ef4444;
+      --font:       'Inter', system-ui, sans-serif;
+      --mono:       'JetBrains Mono', monospace;
+      --radius:     12px;
+      --radius-lg:  20px;
+      --shadow:     0 4px 24px rgba(0,0,0,0.4);
+      --shadow-lg:  0 8px 48px rgba(0,0,0,0.6);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ::selection { background: var(--accent-glow); color: #fff; }
+
+    /* ═══════════════════════════════════════════
+       SCROLLBAR
+    ═══════════════════════════════════════════ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 99px; }
+
+    /* ═══════════════════════════════════════════
+       TYPOGRAPHY
+    ═══════════════════════════════════════════ */
+    h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; }
+    h3 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; }
+    h4 { font-size: 1rem; font-weight: 600; }
+    p  { color: var(--text-2); }
+    .mono { font-family: var(--mono); }
+
+    /* ═══════════════════════════════════════════
+       LAYOUT
+    ═══════════════════════════════════════════ */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+
+    /* ═══════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center;
+      background: rgba(8,11,18,0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1rem; letter-spacing: -0.02em;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.8); }
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--text-2);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 8px 20px; border-radius: 8px;
+      background: var(--accent); color: #fff !important;
+      font-size: 0.875rem; font-weight: 600;
+      transition: opacity 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.9 !important; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 64px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(16,185,129,0.08) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      padding: 80px 0;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 99px;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.3);
+      font-size: 0.8rem; font-weight: 500;
+      color: var(--accent-2); margin-bottom: 24px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+    .hero-title { margin-bottom: 24px; }
+    .hero-title .line-accent { color: var(--accent-2); }
+    .hero-title .line-dim { color: var(--text-3); }
+    .hero-desc {
+      font-size: 1.125rem; color: var(--text-2);
+      max-width: 480px; margin-bottom: 40px;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 10px;
+      background: var(--accent); color: #fff;
+      font-weight: 600; font-size: 0.95rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,0.45); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 10px;
+      background: transparent; color: var(--text);
+      font-weight: 600; font-size: 0.95rem;
+      border: 1px solid var(--border-md);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--bg-3); border-color: var(--text-3); }
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .hero-terminal {
+      width: 100%; max-width: 480px;
+      background: var(--bg-2);
+      border: 1px solid var(--border-md);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg), 0 0 60px rgba(99,102,241,0.1);
+    }
+    .terminal-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 14px 18px;
+      background: var(--bg-3);
+      border-bottom: 1px solid var(--border);
+    }
+    .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .terminal-dot.red { background: #ff5f57; }
+    .terminal-dot.amber { background: #ffbd2e; }
+    .terminal-dot.green { background: #28c840; }
+    .terminal-title { font-size: 0.8rem; color: var(--text-3); font-family: var(--mono); margin-left: auto; }
+    .terminal-body { padding: 24px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.9; }
+    .t-prompt { color: var(--accent-2); }
+    .t-cmd { color: var(--text); }
+    .t-out { color: var(--text-2); }
+    .t-green { color: var(--green); }
+    .t-amber { color: var(--amber); }
+    .t-dim { color: var(--text-3); }
+    .t-cursor {
+      display: inline-block; width: 8px; height: 14px;
+      background: var(--accent); vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ═══════════════════════════════════════════
+       METRICS BAND
+    ═══════════════════════════════════════════ */
+    .metrics-band {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-2);
+      padding: 40px 0;
+    }
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+    }
+    .metric-item {
+      text-align: center; padding: 8px 20px;
+      border-right: 1px solid var(--border);
+    }
+    .metric-item:last-child { border-right: none; }
+    .metric-number {
+      font-size: 2.5rem; font-weight: 800;
+      letter-spacing: -0.04em; color: var(--text);
+      line-height: 1;
+    }
+    .metric-number span { color: var(--accent-2); }
+    .metric-label { font-size: 0.8rem; color: var(--text-3); margin-top: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ═══════════════════════════════════════════
+       SECTION HEADERS
+    ═══════════════════════════════════════════ */
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent-2); margin-bottom: 16px;
+    }
+    .section-tag::before {
+      content: ''; display: block;
+      width: 20px; height: 2px; background: var(--accent);
+    }
+    .section-title { margin-bottom: 16px; }
+    .section-lead { font-size: 1.125rem; color: var(--text-2); max-width: 580px; line-height: 1.75; margin-bottom: 56px; }
+
+    /* ═══════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════ */
+    .about-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    .about-text p { margin-bottom: 20px; line-height: 1.8; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-highlights {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .highlight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      transition: border-color 0.2s;
+    }
+    .highlight-card:hover { border-color: var(--border-md); }
+    .highlight-icon { font-size: 1.5rem; margin-bottom: 10px; }
+    .highlight-title { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .highlight-desc { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; }
+
+    /* ═══════════════════════════════════════════
+       SKILLS
+    ═══════════════════════════════════════════ */
+    #skills { background: var(--bg-2); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .skill-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-category:hover { border-color: var(--border-md); transform: translateY(-2px); }
+    .skill-cat-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .skill-cat-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(99,102,241,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .skill-cat-name { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      padding: 5px 12px; border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--text-2);
+      font-family: var(--mono);
+      transition: all 0.15s;
+    }
+    .skill-tag:hover { background: rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.3); color: var(--accent-2); }
+
+    /* ═══════════════════════════════════════════
+       PROJECTS
+    ═══════════════════════════════════════════ */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.25s;
+      cursor: pointer;
+      position: relative;
+    }
+    .project-card:hover {
+      border-color: rgba(99,102,241,0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), 0 0 40px rgba(99,102,241,0.1);
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .project-card:hover::before { opacity: 1; }
+    .project-visual {
+      height: 180px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .project-visual-bg {
+      position: absolute; inset: 0;
+    }
+    .project-visual-content {
+      position: relative; z-index: 1;
+      width: 90%; height: 85%;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .pvc-header {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pvc-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .pvc-title { font-size: 0.65rem; color: var(--text-3); font-family: var(--mono); margin-left: 4px; }
+    .pvc-body { padding: 10px 12px; flex: 1; }
+    .pvc-line {
+      height: 6px; border-radius: 3px;
+      background: rgba(255,255,255,0.08);
+      margin-bottom: 6px;
+    }
+    .pvc-bar-row { display: flex; gap: 4px; align-items: flex-end; height: 36px; margin-top: 8px; }
+    .pvc-bar { flex: 1; border-radius: 3px 3px 0 0; background: rgba(99,102,241,0.4); }
+    .pvc-metric-row { display: flex; gap: 8px; margin-top: 8px; }
+    .pvc-metric {
+      flex: 1; padding: 6px 8px; border-radius: 4px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+    }
+    .pvc-metric-val { font-size: 0.8rem; font-weight: 700; color: var(--accent-2); font-family: var(--mono); }
+    .pvc-metric-lbl { font-size: 0.55rem; color: var(--text-3); }
+    .project-body { padding: 24px; }
+    .project-number {
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--accent-2); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 8px;
+      font-family: var(--mono);
+    }
+    .project-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .project-tagline { font-size: 0.875rem; color: var(--text-2); margin-bottom: 16px; line-height: 1.55; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .project-tag {
+      padding: 3px 10px; border-radius: 5px;
+      background: rgba(255,255,255,0.05);
+      font-size: 0.72rem; font-weight: 500;
+      color: var(--text-3); font-family: var(--mono);
+    }
+    .project-metrics { display: flex; gap: 16px; }
+    .project-metric { }
+    .pm-val { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .pm-val span { color: var(--green); }
+    .pm-lbl { font-size: 0.72rem; color: var(--text-3); }
+    .project-link {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--accent-2); margin-top: 20px;
+      padding-top: 20px; border-top: 1px solid var(--border);
+      transition: gap 0.2s;
+    }
+    .project-link:hover { gap: 10px; }
+
+    /* ═══════════════════════════════════════════
+       CASE STUDIES
+    ═══════════════════════════════════════════ */
+    #case-studies { background: var(--bg-2); }
+    .case-study {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .case-study:last-child { border-bottom: none; padding-bottom: 0; }
+    .case-study.reverse { direction: rtl; }
+    .case-study.reverse > * { direction: ltr; }
+    .cs-label {
+      font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent-2); margin-bottom: 16px;
+      font-family: var(--mono);
+    }
+    .cs-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .cs-desc { color: var(--text-2); line-height: 1.8; margin-bottom: 28px; }
+    .cs-details { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .cs-detail { display: flex; gap: 12px; align-items: flex-start; }
+    .cs-detail-icon { color: var(--green); font-size: 0.9rem; margin-top: 2px; flex-shrink: 0; }
+    .cs-detail-text { font-size: 0.9rem; color: var(--text-2); line-height: 1.6; }
+    .cs-metrics { display: flex; gap: 24px; }
+    .cs-metric { }
+    .cs-metric-val { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -0.03em; }
+    .cs-metric-val span { color: var(--accent-2); }
+    .cs-metric-lbl { font-size: 0.8rem; color: var(--text-3); }
+    .cs-visual {
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .cs-vis-header {
+      display: flex; align-items: center; gap: 8px;
+      padding: 14px 18px;
+      background: var(--bg-3);
+      border-bottom: 1px solid var(--border);
+    }
+    .cs-vis-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .cs-vis-title { font-size: 0.78rem; color: var(--text-3); font-family: var(--mono); }
+    .cs-vis-body { padding: 20px; }
+    .arch-node {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 14px; border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      font-size: 0.82rem; color: var(--text-2);
+      font-family: var(--mono);
+      transition: border-color 0.2s;
+    }
+    .arch-node:hover { border-color: rgba(99,102,241,0.3); }
+    .arch-node-icon { font-size: 1rem; }
+    .arch-node-name { font-weight: 500; color: var(--text); }
+    .arch-node-tech { color: var(--text-3); font-size: 0.75rem; }
+    .arch-arrow {
+      display: flex; align-items: center; gap: 6px;
+      padding: 4px 14px; font-size: 0.72rem;
+      color: var(--text-3); font-family: var(--mono);
+    }
+    .arch-arrow-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ═══════════════════════════════════════════
+       CONFIDENTIAL WORK
+    ═══════════════════════════════════════════ */
+    .confidential-band {
+      background: linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(16,185,129,0.04) 100%);
+      border: 1px solid rgba(99,102,241,0.15);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin-bottom: 0;
+      position: relative; overflow: hidden;
+    }
+    .confidential-band::before {
+      content: 'CONFIDENTIAL';
+      position: absolute; top: 16px; right: 24px;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.15em;
+      color: rgba(99,102,241,0.3);
+      font-family: var(--mono);
+    }
+    .conf-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px; margin-top: 40px;
+    }
+    .conf-card {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .conf-domain {
+      font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent-2); margin-bottom: 12px;
+      font-family: var(--mono);
+    }
+    .conf-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .conf-desc { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
+    .conf-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .conf-tag {
+      padding: 3px 10px; border-radius: 5px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      font-size: 0.72rem; color: var(--accent-2);
+      font-family: var(--mono);
+    }
+
+    /* ═══════════════════════════════════════════
+       STACK / TECH
+    ═══════════════════════════════════════════ */
+    #stack { background: var(--bg-2); }
+    .stack-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .stack-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: border-color 0.2s;
+    }
+    .stack-item:hover { border-color: var(--border-md); }
+    .stack-category { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); }
+    .stack-name { font-size: 0.9rem; font-weight: 600; color: var(--text); font-family: var(--mono); }
+    .stack-use { font-size: 0.8rem; color: var(--text-3); }
+    .stack-level {
+      display: flex; gap: 3px; margin-top: 4px;
+    }
+    .stack-dot { width: 16px; height: 3px; border-radius: 2px; background: var(--bg-3); }
+    .stack-dot.on { background: var(--accent); }
+
+    /* ═══════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════ */
+    #contact {
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    }
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      border-radius: var(--radius-lg);
+      padding: 64px;
+      text-align: center;
+      position: relative; overflow: hidden;
+      max-width: 720px; margin: 0 auto;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+    }
+    .contact-card > * { position: relative; z-index: 1; }
+    .contact-available {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 99px;
+      background: var(--green-dim);
+      border: 1px solid rgba(16,185,129,0.3);
+      font-size: 0.8rem; color: var(--green);
+      font-weight: 600; margin-bottom: 24px;
+    }
+    .contact-available::before {
+      content: ''; width: 8px; height: 8px;
+      border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse-dot 2s infinite;
+    }
+    .contact-title { font-size: 2rem; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 16px; }
+    .contact-desc { color: var(--text-2); line-height: 1.75; margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .contact-email {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; border-radius: 12px;
+      background: var(--accent); color: #fff;
+      font-weight: 700; font-size: 1.05rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.4);
+      margin-bottom: 32px;
+    }
+    .contact-email:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,0.5); }
+    .contact-links { display: flex; justify-content: center; gap: 24px; }
+    .contact-link {
+      font-size: 0.875rem; color: var(--text-3);
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+    .contact-link:hover { color: var(--text); }
+
+    /* ═══════════════════════════════════════════
+       DOWNLOADS
+    ═══════════════════════════════════════════ */
+    .downloads-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 40px;
+    }
+    .download-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: all 0.2s;
+    }
+    .download-card:hover { border-color: var(--border-md); transform: translateY(-2px); }
+    .dl-icon { font-size: 2rem; }
+    .dl-name { font-weight: 600; color: var(--text); }
+    .dl-desc { font-size: 0.875rem; color: var(--text-2); }
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      border: 1px solid var(--border-md);
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--text-2); transition: all 0.2s;
+      margin-top: auto;
+    }
+    .dl-btn:hover { background: var(--bg-3); color: var(--text); }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+    }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+    .footer-left { font-size: 0.875rem; color: var(--text-3); }
+    .footer-right { font-size: 0.8rem; color: var(--text-3); display: flex; gap: 24px; }
+    .footer-right a:hover { color: var(--text-2); }
+
+    /* ═══════════════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════════════ */
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+    .fade-in-delay-5 { transition-delay: 0.5s; }
+
+    /* ═══════════════════════════════════════════
+       DIVIDER
+    ═══════════════════════════════════════════ */
+    .divider {
+      height: 1px; background: var(--border);
+      margin: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .stack-grid { grid-template-columns: repeat(3, 1fr); }
+      .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+      .metric-item:nth-child(3) { border-right: none; }
+      .case-study { grid-template-columns: 1fr; gap: 40px; }
+      .case-study.reverse { direction: ltr; }
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .stack-grid { grid-template-columns: repeat(2, 1fr); }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .conf-grid { grid-template-columns: 1fr; }
+      .downloads-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .contact-card { padding: 40px 24px; }
+      .footer-inner { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ──────────────────────────────────────────
+       NAVIGATION
+  ────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="nav-logo-dot"></div>
+         Ahmed Hani
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#confidential">Confidential</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ──────────────────────────────────────────
+       HERO
+  ────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge fade-in">
+            <div class="hero-badge-dot"></div>
+            Available for Senior / Principal Roles
+          </div>
+          <h1 class="hero-title fade-in fade-in-delay-1">
+            AI Workflow<br/>
+            <span class="line-accent">& Vibe Coding</span><br/>
+            <span class="line-dim">Engineer</span>
+          </h1>
+          <p class="hero-desc fade-in fade-in-delay-2">
+            I build production-grade AI systems — multi-agent pipelines, LLM-powered automation platforms, real-time analytics, and HIPAA-compliant healthcare AI. Systems that scale, cost-control, and ship.
+          </p>
+          <div class="hero-actions fade-in fade-in-delay-3">
+            <a href="#projects" class="btn-primary">
+              View Projects
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="#contact" class="btn-secondary">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual fade-in fade-in-delay-4">
+          <div class="hero-terminal">
+            <div class="terminal-bar">
+              <div class="terminal-dot red"></div>
+              <div class="terminal-dot amber"></div>
+              <div class="terminal-dot green"></div>
+              <div class="terminal-title">nexusflow — research_graph.py</div>
+            </div>
+            <div class="terminal-body">
+              <div><span class="t-dim"># Building multi-agent research graph</span></div>
+              <div><span class="t-prompt">→</span> <span class="t-cmd">graph = build_research_graph()</span></div>
+              <br/>
+              <div><span class="t-dim"># Planner decomposes query</span></div>
+              <div><span class="t-green">✓</span> <span class="t-out">planner: 4 sub-questions generated</span></div>
+              <div><span class="t-green">✓</span> <span class="t-out">researcher: 6 sources retrieved</span></div>
+              <div><span class="t-amber">⟳</span> <span class="t-out">critic: quality_score=0.68 &lt; 0.72</span></div>
+              <div><span class="t-dim">  → rerouting: gap_fill iteration 2</span></div>
+              <div><span class="t-green">✓</span> <span class="t-out">critic: quality_score=0.89 APPROVED</span></div>
+              <div><span class="t-green">✓</span> <span class="t-out">synthesiser: 3 sections written</span></div>
+              <div><span class="t-green">✓</span> <span class="t-out">formatter: citations attached</span></div>
+              <br/>
+              <div><span class="t-prompt">→</span> <span class="t-green">report.pdf  [cost: $0.09]  [47s]</span></div>
+              <div><span class="t-cursor"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────
+       METRICS BAND
+  ────────────────────────────────────────── -->
+  <div class="metrics-band">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-item fade-in">
+          <div class="metric-number">6<span>+</span></div>
+          <div class="metric-label">Production AI Systems</div>
+        </div>
+        <div class="metric-item fade-in fade-in-delay-1">
+          <div class="metric-number">3<span>yr</span></div>
+          <div class="metric-label">Agentic AI Experience</div>
+        </div>
+        <div class="metric-item fade-in fade-in-delay-2">
+          <div class="metric-number">50<span>k+</span></div>
+          <div class="metric-label">Records / Day Processed</div>
+        </div>
+        <div class="metric-item fade-in fade-in-delay-3">
+          <div class="metric-number">98<span>%</span></div>
+          <div class="metric-label">Query Latency Reduced</div>
+        </div>
+        <div class="metric-item fade-in fade-in-delay-4">
+          <div class="metric-number">0<span></span></div>
+          <div class="metric-label">HIPAA Violations in Prod</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────────────────────────────────────────
+       ABOUT
+  ────────────────────────────────────────── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-tag">About</div>
+          <h2 class="section-title">I build AI systems<br/>that work in production.</h2>
+          <p>
+            I'm a senior AI systems engineer with a background spanning clinical research, workflow automation, and enterprise data engineering. My work sits at the intersection of LLM reliability, distributed systems design, and developer experience.
+          </p>
+          <p>
+            I've shipped multi-agent research platforms, HIPAA-compliant healthcare data pipelines, real-time anomaly detection systems, and intelligent customer support infrastructure — all with full CI/CD, observability, and cost controls.
+          </p>
+          <p>
+            I don't prototype. I build systems that run in production, handle edge cases, stay within budget, and give operators the visibility they need to trust them.
+          </p>
+          <p>
+            What I'm looking for: a senior or principal engineering role where the challenge is genuinely hard and the AI stack actually matters.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card fade-in">
+            <div class="highlight-icon">🧠</div>
+            <div class="highlight-title">Multi-Agent Systems</div>
+            <div class="highlight-desc">LangGraph state machines with typed state, conditional routing, quality gates, and cost guardrails. Built for production, not demos.</div>
+          </div>
+          <div class="highlight-card fade-in fade-in-delay-1">
+            <div class="highlight-icon">⚙️</div>
+            <div class="highlight-title">Workflow Automation</div>
+            <div class="highlight-desc">DAG-based execution engines, visual workflow builders, and enterprise integrations. From n8n to custom TypeScript orchestrators.</div>
+          </div>
+          <div class="highlight-card fade-in fade-in-delay-2">
+            <div class="highlight-icon">🔒</div>
+            <div class="highlight-title">Healthcare & Compliance</div>
+            <div class="highlight-desc">HIPAA Safe Harbour de-identification, k-anonymity validation, Presidio NLP pipelines. Passed independent compliance audit.</div>
+          </div>
+          <div class="highlight-card fade-in fade-in-delay-3">
+            <div class="highlight-icon">📡</div>
+            <div class="highlight-title">Observability First</div>
+            <div class="highlight-desc">Prometheus metrics, structured JSON logging, OpenTelemetry traces, Grafana dashboards — instrumented from day one, not bolted on later.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ──────────────────────────────────────────
+       SKILLS
+  ────────────────────────────────────────── -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-tag">Technical Skills</div>
+      <h2 class="section-title">The stack I ship with.</h2>
+      <p class="section-lead">A working knowledge of these tools, not a buzzword list. Each one has been used in a production system with real traffic, real data, and real consequences.</p>
+      <div class="skills-grid">
+        <div class="skill-category fade-in">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🤖</div>
+            <div class="skill-cat-name">AI / LLM</div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">LangGraph</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">OpenAI API</span>
+            <span class="skill-tag">GPT-4o</span>
+            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">Prompt Eng.</span>
+            <span class="skill-tag">Fine-tuning</span>
+            <span class="skill-tag">Presidio</span>
+            <span class="skill-tag">Evals</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in fade-in-delay-1">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🐍</div>
+            <div class="skill-cat-name">Backend</div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python 3.11</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">asyncio</span>
+            <span class="skill-tag">Pydantic v2</span>
+            <span class="skill-tag">BullMQ</span>
+            <span class="skill-tag">SSE</span>
+            <span class="skill-tag">WebSocket</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in fade-in-delay-2">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">⚛️</div>
+            <div class="skill-cat-name">Frontend</div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">React 18</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">React Flow</span>
+            <span class="skill-tag">TailwindCSS</span>
+            <span class="skill-tag">Vite</span>
+            <span class="skill-tag">Zustand</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in fade-in-delay-1">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🗄️</div>
+            <div class="skill-cat-name">Databases</div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">TimescaleDB</span>
+            <span class="skill-tag">Qdrant</span>
+            <span class="skill-tag">pgvector</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">MinIO</span>
+            <span class="skill-tag">Prisma</span>
+            <span class="skill-tag">Drizzle</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in fade-in-delay-2">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🔧</div>
+            <div class="skill-cat-name">Data Engineering</div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Apache Airflow</span>
+            <span class="skill-tag">dbt</span>
+            <span class="skill-tag">ETL / ELT</span>
+            <span class="skill-tag">pandas</span>
+            <span class="skill-tag">statsmodels</span>
+            <span class="skill-tag">ARIMA</span>
+            <span class="skill-tag">sentence-transformers</span>
+          </div>
+        </div>
+        <div class="skill-category fade-in fade-in-delay-3">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🚀</div>
+            <div class="skill-cat-name">Infrastructure</div>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Railway</span>
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">OpenTelemetry</span>
+            <span class="skill-tag">n8n</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ──────────────────────────────────────────
+       PROJECTS
+  ────────────────────────────────────────── -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-tag">Selected Work</div>
+      <h2 class="section-title">Six systems. All production-grade.</h2>
+      <p class="section-lead">Not prototypes. Not demos. Each project includes a production codebase, Docker deployment, CI/CD pipeline, observability instrumentation, and complete documentation.</p>
+      <div class="projects-grid">
+
+        <!-- NexusFlow -->
+        <div class="project-card fade-in">
+          <div class="project-visual">
+            <div class="project-visual-bg" style="background: linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.1) 100%);"></div>
+            <div class="project-visual-content">
+              <div class="pvc-header">
+                <div class="pvc-dot" style="background:#ff5f57"></div>
+                <div class="pvc-dot" style="background:#ffbd2e"></div>
+                <div class="pvc-dot" style="background:#28c840"></div>
+                <div class="pvc-title">research_graph.py — LangGraph</div>
+              </div>
+              <div class="pvc-body">
+                <div class="pvc-line" style="width:80%"></div>
+                <div class="pvc-line" style="width:60%"></div>
+                <div style="display:flex;gap:6px;margin-top:8px;font-family:var(--mono);font-size:0.65rem;">
+                  <span style="color:#6366f1">planner</span>
+                  <span style="color:var(--text-3)">→</span>
+                  <span style="color:#10b981">researcher</span>
+                  <span style="color:var(--text-3)">→</span>
+                  <span style="color:#f59e0b">critic</span>
+                  <span style="color:var(--text-3)">→</span>
+                  <span style="color:#6366f1">synth</span>
+                </div>
+                <div class="pvc-metric-row">
+                  <div class="pvc-metric"><div class="pvc-metric-val">0.89</div><div class="pvc-metric-lbl">quality</div></div>
+                  <div class="pvc-metric"><div class="pvc-metric-val">$0.11</div><div class="pvc-metric-lbl">cost</div></div>
+                  <div class="pvc-metric"><div class="pvc-metric-val">47s</div><div class="pvc-metric-lbl">latency</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">01 · NexusFlow</div>
+            <div class="project-name">Multi-Agent Deep Research Platform</div>
+            <div class="project-tagline">LangGraph pipeline that autonomously produces cited, quality-scored research reports with real-time SSE streaming.</div>
+            <div class="project-tags">
+              <span class="project-tag">LangGraph</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">Qdrant</span>
+              <span class="project-tag">SSE</span>
+              <span class="project-tag">GPT-4o</span>
+            </div>
+            <div class="project-metrics">
+              <div class="project-metric"><div class="pm-val"><span>↓40%</span></div><div class="pm-lbl">LLM cost via RAG</div></div>
+              <div class="project-metric"><div class="pm-val"><span>+23%</span></div><div class="pm-lbl">quality vs single-pass</div></div>
+            </div>
+            <a href="https://github.com/dr-ahmed" class="project-link">
+              View on GitHub
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- WorkflowOS -->
+        <div class="project-card fade-in fade-in-delay-1">
+          <div class="project-visual">
+            <div class="project-visual-bg" style="background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(6,182,212,0.08) 100%);"></div>
+            <div class="project-visual-content">
+              <div class="pvc-header">
+                <div class="pvc-dot" style="background:#ff5f57"></div>
+                <div class="pvc-dot" style="background:#ffbd2e"></div>
+                <div class="pvc-dot" style="background:#28c840"></div>
+                <div class="pvc-title">dag.ts — DAG Executor</div>
+              </div>
+              <div class="pvc-body">
+                <div style="font-family:var(--mono);font-size:0.65rem;color:var(--text-3);margin-bottom:8px;">topoSort(nodes, edges)</div>
+                <div style="font-family:var(--mono);font-size:0.62rem;line-height:1.8;">
+                  <div><span style="color:#10b981">level[0]</span> webhook → <span style="color:#6366f1">EXEC</span></div>
+                  <div><span style="color:#10b981">level[1]</span> ai-extract, ai-classify <span style="color:#f59e0b">‖ parallel</span></div>
+                  <div><span style="color:#10b981">level[2]</span> branch → slack / email</div>
+                </div>
+                <div class="pvc-metric-row" style="margin-top:10px">
+                  <div class="pvc-metric"><div class="pvc-metric-val">↓60%</div><div class="pvc-metric-lbl">latency</div></div>
+                  <div class="pvc-metric"><div class="pvc-metric-val">AES-256</div><div class="pvc-metric-lbl">cred vault</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">02 · WorkflowOS</div>
+            <div class="project-name">Visual AI Workflow Automation</div>
+            <div class="project-tagline">No-code workflow builder with a React Flow canvas and TypeScript DAG executor with parallel level execution.</div>
+            <div class="project-tags">
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">React Flow</span>
+              <span class="project-tag">BullMQ</span>
+              <span class="project-tag">GPT-4o</span>
+              <span class="project-tag">Redis</span>
+            </div>
+            <div class="project-metrics">
+              <div class="project-metric"><div class="pm-val"><span>↓60%</span></div><div class="pm-lbl">workflow latency</div></div>
+              <div class="project-metric"><div class="pm-val"><span>0</span></div><div class="pm-lbl">plaintext credentials</div></div>
+            </div>
+            <a href="https://github.com/dr-ahmed" class="project-link">View on GitHub <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          </div>
+        </div>
+
+        <!-- PulseDash -->
+        <div class="project-card fade-in fade-in-delay-2">
+          <div class="project-visual">
+            <div class="project-visual-bg" style="background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(239,68,68,0.06) 100%);"></div>
+            <div class="project-visual-content">
+              <div class="pvc-header">
+                <div class="pvc-dot" style="background:#ff5f57"></div>
+                <div class="pvc-dot" style="background:#ffbd2e"></div>
+                <div class="pvc-dot" style="background:#28c840"></div>
+                <div class="pvc-title">detector.py — Anomaly Engine</div>
+              </div>
+              <div class="pvc-body">
+                <div style="font-family:var(--mono);font-size:0.62rem;color:var(--text-3);margin-bottom:4px;">checkout_rate · Z-score + ARIMA(2,1,2)</div>
+                <div class="pvc-bar-row">
+                  <div class="pvc-bar" style="height:30%;background:rgba(99,102,241,0.35)"></div>
+                  <div class="pvc-bar" style="height:50%;background:rgba(99,102,241,0.4)"></div>
+                  <div class="pvc-bar" style="height:70%;background:rgba(99,102,241,0.45)"></div>
+                  <div class="pvc-bar" style="height:45%;background:rgba(99,102,241,0.4)"></div>
+                  <div class="pvc-bar" style="height:90%;background:rgba(239,68,68,0.7)"></div>
+                  <div class="pvc-bar" style="height:35%;background:rgba(99,102,241,0.35)"></div>
+                  <div class="pvc-bar" style="height:55%;background:rgba(99,102,241,0.4)"></div>
+                  <div class="pvc-bar" style="height:40%;"></div>
+                </div>
+                <div class="pvc-metric-row">
+                  <div class="pvc-metric" style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.2)"><div class="pvc-metric-val" style="color:#ef4444">ALERT</div><div class="pvc-metric-lbl">z=4.2</div></div>
+                  <div class="pvc-metric"><div class="pvc-metric-val">38ms</div><div class="pvc-metric-lbl">p99 query</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">03 · PulseDash</div>
+            <div class="project-name">Real-Time AI Anomaly Detection</div>
+            <div class="project-tagline">Hybrid ARIMA + Z-score detector with GPT-4o-mini narrative alerts. TimescaleDB continuous aggregates for live dashboards.</div>
+            <div class="project-tags">
+              <span class="project-tag">TimescaleDB</span>
+              <span class="project-tag">ARIMA</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">Redis Pub/Sub</span>
+              <span class="project-tag">WebSocket</span>
+            </div>
+            <div class="project-metrics">
+              <div class="project-metric"><div class="pm-val"><span>↓73%</span></div><div class="pm-lbl">false positives</div></div>
+              <div class="project-metric"><div class="pm-val"><span>38ms</span></div><div class="pm-lbl">p99 latency</div></div>
+            </div>
+            <a href="https://github.com/dr-ahmed" class="project-link">View on GitHub <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          </div>
+        </div>
+
+        <!-- ScraperMatrix -->
+        <div class="project-card fade-in">
+          <div class="project-visual">
+            <div class="project-visual-bg" style="background: linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(99,102,241,0.08) 100%);"></div>
+            <div class="project-visual-content">
+              <div class="pvc-header">
+                <div class="pvc-dot" style="background:#ff5f57"></div>
+                <div class="pvc-dot" style="background:#ffbd2e"></div>
+                <div class="pvc-dot" style="background:#28c840"></div>
+                <div class="pvc-title">job_market_dag.py — Airflow</div>
+              </div>
+              <div class="pvc-body">
+                <div style="font-family:var(--mono);font-size:0.62rem;line-height:1.9;color:var(--text-3);">
+                  <div><span style="color:#10b981">✓</span> discover_urls <span style="color:var(--text-3)">[8,412 urls]</span></div>
+                  <div><span style="color:#10b981">✓</span> run_spider <span style="color:var(--text-3)">[96.3% accuracy]</span></div>
+                  <div><span style="color:#10b981">✓</span> dedup_store <span style="color:var(--text-3)">[0.3% dupes]</span></div>
+                  <div><span style="color:#10b981">✓</span> update_log <span style="color:var(--text-3)">[done]</span></div>
+                </div>
+                <div class="pvc-metric-row">
+                  <div class="pvc-metric"><div class="pvc-metric-val">15k</div><div class="pvc-metric-lbl">URLs/day</div></div>
+                  <div class="pvc-metric"><div class="pvc-metric-val">HNSW</div><div class="pvc-metric-lbl">pgvector</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">04 · ScraperMatrix</div>
+            <div class="project-name">Intelligent Web Scraping Pipeline</div>
+            <div class="project-tagline">GPT-4o JSON Schema extraction with SHA-256 + sentence-transformer two-stage deduplication via pgvector HNSW index.</div>
+            <div class="project-tags">
+              <span class="project-tag">Airflow</span>
+              <span class="project-tag">GPT-4o</span>
+              <span class="project-tag">pgvector</span>
+              <span class="project-tag">Playwright</span>
+              <span class="project-tag">MinIO</span>
+            </div>
+            <div class="project-metrics">
+              <div class="project-metric"><div class="pm-val"><span>96.3%</span></div><div class="pm-lbl">extraction accuracy</div></div>
+              <div class="project-metric"><div class="pm-val"><span>↓34%</span></div><div class="pm-lbl">duplicate rate</div></div>
+            </div>
+            <a href="https://github.com/dr-ahmed" class="project-link">View on GitHub <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          </div>
+        </div>
+
+        <!-- SupportNinja -->
+        <div class="project-card fade-in fade-in-delay-1">
+          <div class="project-visual">
+            <div class="project-visual-bg" style="background: linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(99,102,241,0.08) 100%);"></div>
+            <div class="project-visual-content">
+              <div class="pvc-header">
+                <div class="pvc-dot" style="background:#ff5f57"></div>
+                <div class="pvc-dot" style="background:#ffbd2e"></div>
+                <div class="pvc-dot" style="background:#28c840"></div>
+                <div class="pvc-title">classifier.py — Routing Engine</div>
+              </div>
+              <div class="pvc-body">
+                <div style="font-family:var(--mono);font-size:0.62rem;line-height:1.9;">
+                  <div><span style="color:#10b981">58%</span> <span style="color:var(--text-3)">auto_respond (conf ≥ 0.87)</span></div>
+                  <div><span style="color:#f59e0b">29%</span> <span style="color:var(--text-3)">draft_review (conf ≥ 0.65)</span></div>
+                  <div><span style="color:#ef4444">13%</span> <span style="color:var(--text-3)">escalation (critical/VIP)</span></div>
+                </div>
+                <div class="pvc-metric-row">
+                  <div class="pvc-metric"><div class="pvc-metric-val">11min</div><div class="pvc-metric-lbl">response time</div></div>
+                  <div class="pvc-metric"><div class="pvc-metric-val">4.6★</div><div class="pvc-metric-lbl">CSAT</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">05 · SupportNinja</div>
+            <div class="project-name">AI-First Customer Support Platform</div>
+            <div class="project-tagline">Confidence-based ticket routing, dual Qdrant RAG architecture, human-in-the-loop fine-tuning with response guardrails.</div>
+            <div class="project-tags">
+              <span class="project-tag">Qdrant</span>
+              <span class="project-tag">GPT-4o</span>
+              <span class="project-tag">BullMQ</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">Slack API</span>
+            </div>
+            <div class="project-metrics">
+              <div class="project-metric"><div class="pm-val"><span>58%</span></div><div class="pm-lbl">autonomous resolution</div></div>
+              <div class="project-metric"><div class="pm-val"><span>↓96%</span></div><div class="pm-lbl">response time</div></div>
+            </div>
+            <a href="https://github.com/dr-ahmed" class="project-link">View on GitHub <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          </div>
+        </div>
+
+        <!-- CliniqFlow -->
+        <div class="project-card fade-in fade-in-delay-2">
+          <div class="project-visual">
+            <div class="project-visual-bg" style="background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(6,182,212,0.06) 100%);"></div>
+            <div class="project-visual-content">
+              <div class="pvc-header">
+                <div class="pvc-dot" style="background:#ff5f57"></div>
+                <div class="pvc-dot" style="background:#ffbd2e"></div>
+                <div class="pvc-dot" style="background:#28c840"></div>
+                <div class="pvc-title">deidentify.py — HIPAA Pipeline</div>
+              </div>
+              <div class="pvc-body">
+                <div style="font-family:var(--mono);font-size:0.62rem;line-height:1.9;color:var(--text-3);">
+                  <div><span style="color:#10b981">✓</span> Presidio: 18 identifier types</div>
+                  <div><span style="color:#10b981">✓</span> HMAC-SHA256 pseudonymisation</div>
+                  <div><span style="color:#10b981">✓</span> k-anonymity (k=5) validated</div>
+                  <div><span style="color:#10b981">✓</span> dbt mart: 100% tests pass</div>
+                </div>
+                <div class="pvc-metric-row">
+                  <div class="pvc-metric" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2)"><div class="pvc-metric-val" style="color:#10b981">HIPAA</div><div class="pvc-metric-lbl">compliant</div></div>
+                  <div class="pvc-metric"><div class="pvc-metric-val">&lt;25m</div><div class="pvc-metric-lbl">pipeline SLA</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">06 · CliniqFlow</div>
+            <div class="project-name">HIPAA-Compliant Clinical AI Pipeline</div>
+            <div class="project-tagline">Presidio de-identification, k-anonymity validation, dbt mart layer, and GPT-4o daily clinical briefings via Airflow.</div>
+            <div class="project-tags">
+              <span class="project-tag">Presidio</span>
+              <span class="project-tag">dbt</span>
+              <span class="project-tag">Airflow</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">GPT-4o</span>
+            </div>
+            <div class="project-metrics">
+              <div class="project-metric"><div class="pm-val"><span>0</span></div><div class="pm-lbl">re-id risk on mart</div></div>
+              <div class="project-metric"><div class="pm-val"><span>100%</span></div><div class="pm-lbl">dbt test pass rate</div></div>
+            </div>
+            <a href="https://github.com/dr-ahmed" class="project-link">View on GitHub <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ──────────────────────────────────────────
+       CASE STUDIES
+  ────────────────────────────────────────── -->
+  <section id="case-studies" class="section">
+    <div class="container">
+      <div class="section-tag">Case Studies</div>
+      <h2 class="section-title">The problems behind the systems.</h2>
+      <p class="section-lead">The architecture decisions that mattered, and why they were made that way.</p>
+
+      <!-- Case Study 1: NexusFlow -->
+      <div class="case-study">
+        <div>
+          <div class="cs-label">Case Study · 01 · NexusFlow</div>
+          <div class="cs-title">From a spinner to a<br/>reasoning system.</div>
+          <div class="cs-desc">Enterprise research teams were spending 3–5 hours per report manually synthesising information from dozens of sources. Quality was inconsistent. The process was not repeatable. The first attempt — a single GPT-4o call — produced plausible-looking but shallow output with no citations and no quality signal.</div>
+          <div class="cs-details">
+            <div class="cs-detail"><div class="cs-detail-icon">→</div><div class="cs-detail-text">Built a LangGraph state machine with a dedicated Critic agent that scores output on four rubric dimensions and routes back to Researcher if quality drops below 0.72.</div></div>
+            <div class="cs-detail"><div class="cs-detail-icon">→</div><div class="cs-detail-text">Added a Qdrant RAG layer that answered ~40% of Researcher sub-queries from the knowledge base, eliminating redundant API calls and cutting average cost from $0.18 to $0.11.</div></div>
+            <div class="cs-detail"><div class="cs-detail-icon">→</div><div class="cs-detail-text">Streamed every agent thought event to the frontend via SSE — users can watch the system reason, reducing perceived wait time and building trust in the output.</div></div>
+          </div>
+          <div class="cs-metrics">
+            <div class="cs-metric"><div class="cs-metric-val">+<span>23%</span></div><div class="cs-metric-lbl">quality vs single-pass</div></div>
+            <div class="cs-metric"><div class="cs-metric-val">↓<span>40%</span></div><div class="cs-metric-lbl">LLM cost via RAG</div></div>
+            <div class="cs-metric"><div class="cs-metric-val"><span>47s</span></div><div class="cs-metric-lbl">avg report time</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="cs-visual">
+            <div class="cs-vis-header">
+              <div class="cs-vis-dot" style="background:#ff5f57"></div>
+              <div class="cs-vis-dot" style="background:#ffbd2e"></div>
+              <div class="cs-vis-dot" style="background:#28c840"></div>
+              <div class="cs-vis-title">nexusflow · agent pipeline</div>
+            </div>
+            <div class="cs-vis-body">
+              <div class="arch-node"><div class="arch-node-icon">📥</div><div><div class="arch-node-name">User Request</div><div class="arch-node-tech">FastAPI POST /research/start</div></div></div>
+              <div class="arch-arrow"><div class="arch-arrow-line"></div>↓<div class="arch-arrow-line"></div></div>
+              <div class="arch-node" style="border-color:rgba(99,102,241,0.3)"><div class="arch-node-icon">🗺️</div><div><div class="arch-node-name">Planner</div><div class="arch-node-tech">GPT-4o · decompose query</div></div></div>
+              <div class="arch-arrow"><div class="arch-arrow-line"></div>↓<div class="arch-arrow-line"></div></div>
+              <div class="arch-node" style="border-color:rgba(16,185,129,0.3)"><div class="arch-node-icon">🔬</div><div><div class="arch-node-name">Researcher</div><div class="arch-node-tech">Tavily + Qdrant RAG</div></div></div>
+              <div class="arch-arrow"><div class="arch-arrow-line"></div>↓<div class="arch-arrow-line"></div></div>
+              <div class="arch-node" style="border-color:rgba(245,158,11,0.3)"><div class="arch-node-icon">🧐</div><div><div class="arch-node-name">Critic ← reroute if &lt;0.72</div><div class="arch-node-tech">Rubric scoring · 4 dimensions</div></div></div>
+              <div class="arch-arrow"><div class="arch-arrow-line"></div>↓<div class="arch-arrow-line"></div></div>
+              <div class="arch-node"><div class="arch-node-icon">✍️</div><div><div class="arch-node-name">Synthesiser → Formatter</div><div class="arch-node-tech">Structured report + citations</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2: CliniqFlow -->
+      <div class="case-study reverse">
+        <div>
+          <div class="cs-label">Case Study · 06 · CliniqFlow</div>
+          <div class="cs-title">HIPAA compliance as<br/>an engineering problem.</div>
+          <div class="cs-desc">A healthcare network wanted to use EHR data to train models and generate operational insights. Legal blocked the project: patient data reaching LLM APIs required a Business Associate Agreement, which the vendor wouldn't sign. The challenge was making the data legally unidentifiable before it left the organisation's perimeter.</div>
+          <div class="cs-details">
+            <div class="cs-detail"><div class="cs-detail-icon">→</div><div class="cs-detail-text">Applied HIPAA Safe Harbour: all 18 specified identifier types addressed via Presidio NLP, HMAC-SHA256 pseudonymisation, geographic generalisation, and date shifting.</div></div>
+            <div class="cs-detail"><div class="cs-detail-icon">→</div><div class="cs-detail-text">Added k-anonymity validation (k=5) on quasi-identifier combinations before mart materialisation — a statistical guarantee against re-identification via combination attack.</div></div>
+            <div class="cs-detail"><div class="cs-detail-icon">→</div><div class="cs-detail-text">Schema separation (raw / deidentified / staging / mart) enforced at the PostgreSQL GRANT level — no application-layer trust required for data isolation.</div></div>
+          </div>
+          <div class="cs-metrics">
+            <div class="cs-metric"><div class="cs-metric-val"><span>18</span></div><div class="cs-metric-lbl">HIPAA identifiers addressed</div></div>
+            <div class="cs-metric"><div class="cs-metric-val"><span>k=5</span></div><div class="cs-metric-lbl">anonymity threshold</div></div>
+            <div class="cs-metric"><div class="cs-metric-val"><span>0</span></div><div class="cs-metric-lbl">BAAs required</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="cs-visual">
+            <div class="cs-vis-header">
+              <div class="cs-vis-dot" style="background:#ff5f57"></div>
+              <div class="cs-vis-dot" style="background:#ffbd2e"></div>
+              <div class="cs-vis-dot" style="background:#28c840"></div>
+              <div class="cs-vis-title">cliniqflow · data pipeline</div>
+            </div>
+            <div class="cs-vis-body">
+              <div class="arch-node"><div class="arch-node-icon">🏥</div><div><div class="arch-node-name">EHR System</div><div class="arch-node-tech">raw schema · PHI present</div></div></div>
+              <div class="arch-arrow"><div class="arch-arrow-line"></div>↓ Presidio + HMAC<div class="arch-arrow-line"></div></div>
+              <div class="arch-node" style="border-color:rgba(16,185,129,0.3)"><div class="arch-node-icon">🛡️</div><div><div class="arch-node-name">Deidentified Layer</div><div class="arch-node-tech">18 identifiers removed · k≥5</div></div></div>
+              <div class="arch-arrow"><div class="arch-arrow-line"></div>↓ dbt transform<div class="arch-arrow-line"></div></div>
+              <div class="arch-node"><div class="arch-node-icon">📊</div><div><div class="arch-node-name">Mart Layer</div><div class="arch-node-tech">LOS bands · ICD-10 · readmissions</div></div></div>
+              <div class="arch-arrow"><div class="arch-arrow-line"></div>↓ GPT-4o aggregates only<div class="arch-arrow-line"></div></div>
+              <div class="arch-node" style="border-color:rgba(99,102,241,0.3)"><div class="arch-node-icon">📝</div><div><div class="arch-node-name">Daily Briefings</div><div class="arch-node-tech">Dept heads · no PHI ever sent to LLM</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ──────────────────────────────────────────
+       CONFIDENTIAL WORK
+  ────────────────────────────────────────── -->
+  <section id="confidential" class="section">
+    <div class="container">
+      <div class="section-tag">Confidential Work</div>
+      <h2 class="section-title">Selected enterprise work<br/>under NDA.</h2>
+      <p class="section-lead">A number of engagements cannot be shared publicly due to client confidentiality. Described here in terms of systems built and outcomes achieved, without identifying client or proprietary detail.</p>
+      <div class="confidential-band">
+        <div style="max-width:560px;">
+          <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:12px;">What this section represents</h3>
+          <p style="font-size:0.95rem;color:var(--text-2);line-height:1.75;">These engagements span healthcare, telecom, and enterprise operations. All systems were delivered in production, not as prototypes. Architecture details, code excerpts, and full case studies are available under NDA for serious employer conversations.</p>
+        </div>
+        <div class="conf-grid">
+
+          <div class="conf-card">
+            <div class="conf-domain">Healthcare · Bioinformatics</div>
+            <div class="conf-title">Clinical NLP Document Intelligence Platform</div>
+            <div class="conf-desc">Designed and deployed an NLP pipeline processing clinical notes at scale. Extracted structured data from unstructured text using a combination of rule-based systems and transformer models. Pipeline integrated into an EHR vendor's analytics product. Handled PHI with full de-identification and audit trail.</div>
+            <div class="conf-tags">
+              <span class="conf-tag">Clinical NLP</span>
+              <span class="conf-tag">Transformer Models</span>
+              <span class="conf-tag">HIPAA</span>
+              <span class="conf-tag">EHR Integration</span>
+              <span class="conf-tag">Python</span>
+            </div>
+          </div>
+
+          <div class="conf-card">
+            <div class="conf-domain">Telecom · Operations</div>
+            <div class="conf-title">Network Anomaly Detection & Auto-Remediation</div>
+            <div class="conf-desc">Built an operations intelligence system for a tier-1 telecom carrier. Ingested 40+ real-time metric streams, applied ML-based anomaly detection, and automated first-line remediation runbooks via an LLM orchestration layer. Reduced mean time to resolution (MTTR) by 67% on qualifying incident classes.</div>
+            <div class="conf-tags">
+              <span class="conf-tag">Anomaly Detection</span>
+              <span class="conf-tag">Auto-Remediation</span>
+              <span class="conf-tag">LLM Orchestration</span>
+              <span class="conf-tag">Telecom</span>
+              <span class="conf-tag">Time-Series</span>
+            </div>
+          </div>
+
+          <div class="conf-card">
+            <div class="conf-domain">Enterprise · Analytics</div>
+            <div class="conf-title">Executive Intelligence Briefing System</div>
+            <div class="conf-desc">Designed an automated executive reporting platform aggregating KPIs from 12 internal data sources. AI layer generated plain-English narrative briefings with anomaly callouts and trend analysis. Delivered as a daily scheduled PDF with Slack digest. Replaced a 3-person manual reporting team.</div>
+            <div class="conf-tags">
+              <span class="conf-tag">AI Reporting</span>
+              <span class="conf-tag">Data Aggregation</span>
+              <span class="conf-tag">dbt</span>
+              <span class="conf-tag">Airflow</span>
+              <span class="conf-tag">LLM Narrative</span>
+            </div>
+          </div>
+
+          <div class="conf-card">
+            <div class="conf-domain">Enterprise · AI Safety</div>
+            <div class="conf-title">LLM Evaluation & Hallucination Testing Framework</div>
+            <div class="conf-desc">Built a comprehensive evaluation framework for a Fortune 500 deploying GPT-4o in a regulated environment. Included factual consistency scoring, citation verification, output format validation, adversarial prompt testing, and a confidence calibration dashboard. Framework gated production deployments.</div>
+            <div class="conf-tags">
+              <span class="conf-tag">LLM Evals</span>
+              <span class="conf-tag">Hallucination Testing</span>
+              <span class="conf-tag">AI Safety</span>
+              <span class="conf-tag">Compliance</span>
+              <span class="conf-tag">Python</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ──────────────────────────────────────────
+       TECH STACK
+  ────────────────────────────────────────── -->
+  <section id="stack" class="section-sm">
+    <div class="container">
+      <div class="section-tag">Tech Stack</div>
+      <h2 class="section-title" style="margin-bottom:48px;">Tools I reach for first.</h2>
+      <div class="stack-grid">
+        <div class="stack-item"><div class="stack-category">Agent Framework</div><div class="stack-name">LangGraph</div><div class="stack-use">Multi-agent state machines</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div></div></div>
+        <div class="stack-item"><div class="stack-category">LLM API</div><div class="stack-name">OpenAI GPT-4o</div><div class="stack-use">Extraction, reasoning, generation</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Vector DB</div><div class="stack-name">Qdrant</div><div class="stack-use">RAG, semantic search</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Backend</div><div class="stack-name">FastAPI</div><div class="stack-use">Async Python API layer</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Frontend</div><div class="stack-name">React + TypeScript</div><div class="stack-use">Dashboards, workflow builders</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Database</div><div class="stack-name">PostgreSQL</div><div class="stack-use">Primary store for all projects</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Time-Series</div><div class="stack-name">TimescaleDB</div><div class="stack-use">Hypertables, continuous aggregates</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Queue</div><div class="stack-name">BullMQ / Redis</div><div class="stack-use">Job queues, Pub/Sub, caching</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Data Transform</div><div class="stack-name">dbt</div><div class="stack-use">Staging → mart with tests</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Orchestration</div><div class="stack-name">Apache Airflow</div><div class="stack-use">Scheduled data pipelines</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot"></div></div></div>
+        <div class="stack-item"><div class="stack-category">Monitoring</div><div class="stack-name">Prometheus + Grafana</div><div class="stack-use">Metrics, dashboards, alerting</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot"></div></div></div>
+        <div class="stack-item"><div class="stack-category">CI/CD</div><div class="stack-name">GitHub Actions</div><div class="stack-use">Lint → test → build → deploy</div><div class="stack-level"><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div><div class="stack-dot on"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ──────────────────────────────────────────
+       DOWNLOADS
+  ────────────────────────────────────────── -->
+  <section id="downloads" class="section-sm">
+    <div class="container">
+      <div class="section-tag">Downloads</div>
+      <h2 class="section-title">Ready-to-send assets.</h2>
+      <p style="color:var(--text-2);margin-bottom:0">Everything a hiring manager, recruiter, or technical lead needs.</p>
+      <div class="downloads-grid">
+        <div class="download-card">
+          <div class="dl-icon">📄</div>
+          <div class="dl-name">Portfolio PDF</div>
+          <div class="dl-desc">Complete portfolio as a clean, printable PDF. All 6 projects, case studies, tech stack, and contact.</div>
+          <a href="AI_Workflow_Engineer_Portfolio_DrAhmed.docx" class="dl-btn" download>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+        <div class="download-card">
+          <div class="dl-icon">📊</div>
+          <div class="dl-name">Slide Deck (PPTX)</div>
+          <div class="dl-desc">15-slide PowerPoint version for hiring manager presentations. Clean enterprise design, ready to send.</div>
+          <a href="Portfolio_DrAhmed_AI_Workflow_Engineer.pptx" class="dl-btn" download>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PPTX
+          </a>
+        </div>
+        <div class="download-card">
+          <div class="dl-icon">💼</div>
+          <div class="dl-name">Resume Bullets</div>
+          <div class="dl-desc">ATS-optimised resume bullet points for all 6 projects plus a complete ATS keyword list.</div>
+          <a href="RESUME_BULLETS.md" class="dl-btn" download>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download MD
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ──────────────────────────────────────────
+       CONTACT
+  ────────────────────────────────────────── -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-card">
+        <div class="contact-available">Available for Senior / Principal Roles</div>
+        <div class="contact-title">Let's work together.</div>
+        <div class="contact-desc">
+          I'm open to senior and principal engineering roles where the AI challenge is real. I'm particularly interested in teams building agentic systems, workflow automation platforms, or enterprise AI infrastructure.
+        </div>
+        <a href="mailto:dr.ahmedhani197@gmail.com" class="contact-email">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          dr.ahmedhani197@gmail.com
+        </a>
+        <div class="contact-links">
+          <a href="https://github.com/dr-ahmed" class="contact-link">GitHub ↗</a>
+          <a href="https://linkedin.com/in/dr-ahmed" class="contact-link">LinkedIn ↗</a>
+          <a href="README.md" class="contact-link">Portfolio README ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────
+       FOOTER
+  ────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">© 2025 Dr Ahmed · AI Workflow & Vibe Coding Engineer</div>
+        <div class="footer-right">
+          <a href="#hero">Back to top ↑</a>
+          <a href="mailto:dr.ahmedhani197@gmail.com">Email</a>
+          <a href="README.md">Portfolio Docs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ──────────────────────────────────────────
+       JAVASCRIPT
+  ────────────────────────────────────────── -->
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.style.borderBottomColor = 'rgba(255,255,255,0.1)';
+      } else {
+        nav.style.borderBottomColor = 'rgba(255,255,255,0.07)';
+      }
+    });
+
+    // Smooth active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sTop = section.offsetTop - 100;
+        if (window.scrollY >= sTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === '#' + current
+          ? 'var(--text)' : '';
+      });
+    });
+  </script>
+</body>
+</html>

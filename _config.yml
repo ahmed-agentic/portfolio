@@ -1,0 +1,8 @@
+# GitHub Pages configuration
+theme: null
+plugins: []
+exclude:
+  - "*.md"
+  - "*.toml"
+  - "*.json"
+  - ".gitignore"
